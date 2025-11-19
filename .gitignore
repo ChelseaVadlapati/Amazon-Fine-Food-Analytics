@@ -1,0 +1,20 @@
+# system files
+.DS_Store
+
+# environments
+.venv/
+env/
+__pycache__/
+
+# raw + large files (don't upload dataset to GitHub)
+Data Raw/
+Data Processed/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# models (optional — can include if models are small)
+# Models/
+
+# log files
+*.log

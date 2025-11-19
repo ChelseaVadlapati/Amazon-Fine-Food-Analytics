@@ -1,0 +1,5 @@
+Sentiment,IsHelpful,Count
+Negative,False,64247
+Negative,True,17790
+Positive,False,344395
+Positive,True,99382
