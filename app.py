@@ -85,7 +85,7 @@ with st.sidebar:
     )
     st.markdown("---")
     st.markdown("**Project:** Amazon Fine Food Analytics\n\n"
-                "**Author:** Chelsea Vadlapati")
+                "**Author:** Thilisitha Chelsea Vadlapati")
 
 # -----------------------------
 # Main layout
