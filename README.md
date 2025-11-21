@@ -1,5 +1,9 @@
 <p align="center"><strong>Amazon Fine Food Reviews — Sentiment Analysis & Interactive Analytics</strong></p> <p align="center"><img src="Assets/Banner.png" alt="Amazon Fine Food Analytics Banner" width="100%"></p> <p align="center"> <img src="https://img.shields.io/badge/Python-3.9%2B-blue"> <img src="https://img.shields.io/badge/Streamlit-app-green"> <img src="https://img.shields.io/badge/Dataset-500k%2B%20reviews-orange"> <img src="https://img.shields.io/badge/Model-LinearSVC-purple"> <img src="https://img.shields.io/badge/License-MIT-lightgrey"> </p>
 
+** Live Demo
+Try the interactive Streamlit app here:
+👉 https://amazon-fine-food-analytics-9f58bkz2chfpgw2kkp5vwg.streamlit.app
+
 > End-to-end natural language processing pipeline built around the **Amazon Fine Food Reviews** dataset. This project covers data ingestion preprocessing, modeling, evaluation, topic analysis, dashboard extracts, and a Streamlit interface for real-time sentiment predictions.
 
 ## Highlights
@@ -85,7 +89,7 @@ Models/                     # serialized TF-IDF vectorizer, best model, metrics
 Notebooks/                  # Jupyter notebooks for EDA, modeling, summaries
 app.py                      # Streamlit UI for real-time predictions
 requirements.txt            # minimal dependencies to run the app + notebooks
-Requirenments_Full_Dev.txt  # extended packages used during exploration
+Requirements_Full_Dev.txt   # extended packages used during exploration
 sql/                        # optional SQL snippets for downstream warehousing
 README.md                   # you are here
 ```
@@ -119,6 +123,11 @@ The Streamlit app loads exactly these artifacts, so any retraining workflow shou
   - Preset example buttons for fast demos
   - Confidence heuristic derived from the decision margin
   - Styled card for results and the analyzed review text
+
+## App Demo
+<p align="center">
+  <img src="Assets/App%20Demo.gif" alt="Amazon Fine Food Streamlit demo" width="80%">
+</p>
 
 If model artifacts are missing, the app displays a friendly error with traceback so deployment troubleshooting is easy.
 
