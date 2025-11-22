@@ -118,6 +118,7 @@ The Streamlit app loads exactly these artifacts, so any retraining workflow shou
 ## Streamlit App
 - File: `app.py`  
 - Command: `streamlit run app.py`  
+- Live demo: [amazon-fine-food-analytics.streamlit.app](https://amazon-fine-food-analytics-9f58bkz2chfpgw2kkp5vwg.streamlit.app)
 - Features:
   - Sidebar instructions + project blurb
   - Preset example buttons for fast demos
