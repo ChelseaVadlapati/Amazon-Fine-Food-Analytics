@@ -20,12 +20,35 @@ st.set_page_config(
 # -----------------------------
 @st.cache_resource(show_spinner=True)
 def load_artifacts():
+    """Load model/vectorizer, preferring the combined pipeline artifact."""
     base_dir = Path(__file__).parent
-    model_path = base_dir / "Models" / "best_sentiment_model.pkl"
-    vect_path = base_dir / "Models" / "tfidf_vectorizer.pkl"
+    models_dir = base_dir / "Models"
 
-    model = joblib.load(model_path)
-    vectorizer = joblib.load(vect_path)
+    pipeline_path = models_dir / "sentiment_pipeline.pkl"
+    model_path = models_dir / "best_sentiment_model.pkl"
+    vect_path = models_dir / "tfidf_vectorizer.pkl"
+
+    if pipeline_path.exists():
+        pipeline = joblib.load(pipeline_path)
+        try:
+            vectorizer = pipeline.named_steps["tfidf"]
+            model = pipeline.named_steps["classifier"]
+        except KeyError as exc:
+            raise ValueError(
+                "The sentiment_pipeline.pkl artifact is missing the expected 'tfidf' "
+                "and 'classifier' steps. Rebuild the pipeline from the modeling notebook."
+            ) from exc
+    else:
+        missing_files = [p for p in (model_path, vect_path) if not p.exists()]
+        if missing_files:
+            missing_list = "\n".join(f"- {p.relative_to(base_dir)}" for p in missing_files)
+            raise FileNotFoundError(
+                "Missing model artifacts required to run the app:\n"
+                f"{missing_list}\nRe-run the modeling notebook to export them."
+            )
+
+        model = joblib.load(model_path)
+        vectorizer = joblib.load(vect_path)
 
     missing_attrs = [attr for attr in ("vocabulary_", "idf_") if not hasattr(vectorizer, attr)]
     if missing_attrs:

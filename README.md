@@ -53,7 +53,7 @@ With saved artifacts and dashboards, teams get a measurable, self-serve feedback
 - **Language**: Python 3.9 (tested 3.9+, compatible with 3.8+)
 - **Libraries**: `pandas`, `scikit-learn`, `nltk`, `xgboost`, `wordcloud`, `matplotlib`, `seaborn`, `streamlit`
 - **Modeling**: TF-IDF features, LinearSVC baseline, alternative classifiers benchmarked in `Models/Model Comparison Results.csv`
-- **Artifacts**: `Models/best_sentiment_model.pkl` and `Models/tfidf_vectorizer.pkl` ready to load
+- **Artifacts**: `Models/best_sentiment_model.pkl`, `Models/tfidf_vectorizer.pkl`, and `Models/sentiment_pipeline.pkl` ready to load
 - **App**: Streamlit UI with cached model loading and prediction confidence
 
 ## Quick Start
