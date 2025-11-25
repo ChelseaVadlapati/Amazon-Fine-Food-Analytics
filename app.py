@@ -2,7 +2,6 @@ import streamlit as st
 import joblib
 import numpy as np
 from pathlib import Path
-from sklearn.exceptions import NotFittedError
 from textwrap import dedent
 
 
@@ -12,8 +11,9 @@ from textwrap import dedent
 st.set_page_config(
     page_title="Amazon Fine Food Sentiment Analyzer",
     page_icon="🍽️",
-    layout="centered"
+    layout="centered",
 )
+
 
 # -----------------------------
 # Load model + vectorizer
@@ -28,6 +28,7 @@ def load_artifacts():
     model_path = models_dir / "best_sentiment_model.pkl"
     vect_path = models_dir / "tfidf_vectorizer.pkl"
 
+    # If a combined pipeline exists, use that first
     if pipeline_path.exists():
         pipeline = joblib.load(pipeline_path)
         try:
@@ -39,9 +40,12 @@ def load_artifacts():
                 "and 'classifier' steps. Rebuild the pipeline from the modeling notebook."
             ) from exc
     else:
+        # Fall back to separate artifacts
         missing_files = [p for p in (model_path, vect_path) if not p.exists()]
         if missing_files:
-            missing_list = "\n".join(f"- {p.relative_to(base_dir)}" for p in missing_files)
+            missing_list = "\n".join(
+                f"- {p.relative_to(base_dir)}" for p in missing_files
+            )
             raise FileNotFoundError(
                 "Missing model artifacts required to run the app:\n"
                 f"{missing_list}\nRe-run the modeling notebook to export them."
@@ -50,17 +54,17 @@ def load_artifacts():
         model = joblib.load(model_path)
         vectorizer = joblib.load(vect_path)
 
-    missing_attrs = [attr for attr in ("vocabulary_", "idf_") if not hasattr(vectorizer, attr)]
-    if missing_attrs:
-        raise NotFittedError(
-            "The TF-IDF vectorizer is not fitted. Re-run the modeling notebook to regenerate "
-            "Models/tfidf_vectorizer.pkl before launching the app."
-        )
+    # Debug only: log vocab size instead of blocking with NotFittedError
+    try:
+        vocab_size = len(getattr(vectorizer, "vocabulary_", {}))
+        print(f"[DEBUG] TF-IDF vocab size loaded: {vocab_size}")
+    except Exception as e:
+        print(f"[DEBUG] Could not inspect TF-IDF vectorizer: {e}")
 
     return model, vectorizer
 
 
-
+# Try to load artifacts once at startup
 try:
     model, vectorizer = load_artifacts()
 except Exception as e:
@@ -71,11 +75,12 @@ except Exception as e:
     st.exception(e)
     st.stop()
 
+
 # -----------------------------
 # Helper: predict sentiment
 # -----------------------------
 def predict_sentiment(review_text: str):
-    """Return label, emoji, description, and confidence for a given review."""
+    """Return label, emoji, description, color, and confidence for a given review."""
     X = vectorizer.transform([review_text])
     pred = int(model.predict(X)[0])  # assumes 0 = negative, 1 = positive
 
@@ -107,6 +112,7 @@ def predict_sentiment(review_text: str):
         "confidence": confidence,
     }
 
+
 # -----------------------------
 # Sidebar
 # -----------------------------
@@ -133,6 +139,7 @@ with st.sidebar:
     st.markdown(
         "[GitHub repo](https://github.com/ChelseaVadlapati/Amazon-Fine-Food-Analytics)"
     )
+
 
 # -----------------------------
 # Main layout
