@@ -2,8 +2,7 @@
 
 ** Live Demo
 Try the interactive Streamlit app here:
-👉 https://amazon-fine-food-analytics-9f58bkz2chfpgw2kkp5vwg.streamlit.app
-
+👉 https://amazon-fine-food-analytics-jxb5pkgnmmkkrjuwtu5upj.streamlit.app
 > End-to-end natural language processing pipeline built around the **Amazon Fine Food Reviews** dataset. This project covers data ingestion preprocessing, modeling, evaluation, topic analysis, dashboard extracts, and a Streamlit interface for real-time sentiment predictions.
 
 ## Highlights
