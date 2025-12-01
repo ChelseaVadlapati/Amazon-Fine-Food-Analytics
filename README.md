@@ -133,12 +133,12 @@ The Streamlit app loads exactly these artifacts, so any retraining workflow shou
 If model artifacts are missing, the app displays a friendly error with traceback so deployment troubleshooting is easy.
 
 ## Power BI Dashboard
-Power BI Dashboard — Amazon Fine Food Analytics
+Power BI Dashboard — Amazon Fine Food Analytics:
 An interactive three-page Power BI report built using the cleaned dataset (Cleaned Reviews.csv).
 The dashboard provides a visual storytelling layer on top of the NLP and modeling pipeline, allowing non-technical users to explore sentiment patterns, rating behaviors, and customer pain points.
 - Live Dashboard: https://app.powerbi.com/view?r=eyJrIjoiMWRiODQ4N2UtMzBiYS00ZmE4LTgyMmUtMTllOWVhMDRmYzA4IiwidCI6IjBkNGRhMGY4LTRhMzEtNGQ3Ni1hY2U2LTBhNjIzMzFlMWI4NCIsImMiOjF9&pageName=e8420c30b137a60b4595
 
-# Dashboard Pages
+### Dashboard Pages
 
 1. Overview — Summary of Insights
 A high-level snapshot of customer satisfaction across 568k Amazon Fine Food reviews.
@@ -167,14 +167,14 @@ Includes:
 - Helpfulness of negative reviews
 Purpose: Surface actionable insights to improve product quality and customer satisfaction.
 
-# Key Skills Demonstrated (Power BI)
+### Key Skills Demonstrated (Power BI)
 Data modeling and transformation through Power Query
 DAX measures for date conversion and sentiment grouping
 Report layout, page theming, and cohesive color design
 KPI cards, slicers, drilldown exploration, and storytelling UI
 Integration of NLP outputs into BI dashboards
 
-# How the Dashboard Connects to the NLP Pipeline
+### How the Dashboard Connects to the NLP Pipeline
 This dashboard was built using the same cleaned dataset and engineered features used for:
 - Sentiment classification
 - Trend analysis
