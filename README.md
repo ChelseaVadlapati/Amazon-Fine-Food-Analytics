@@ -1,8 +1,10 @@
 <p align="center"><strong>Amazon Fine Food Reviews — Sentiment Analysis & Interactive Analytics</strong></p> <p align="center"><img src="Assets/Banner.png" alt="Amazon Fine Food Analytics Banner" width="100%"></p> <p align="center"> <img src="https://img.shields.io/badge/Python-3.9%2B-blue"> <img src="https://img.shields.io/badge/Streamlit-app-green"> <img src="https://img.shields.io/badge/Dataset-500k%2B%20reviews-orange"> <img src="https://img.shields.io/badge/Model-LinearSVC-purple"> <img src="https://img.shields.io/badge/License-MIT-lightgrey"> </p>
 
-** Live Demo
-Try the interactive Streamlit app here:
-👉 https://amazon-fine-food-analytics-jxb5pkgnmmkkrjuwtu5upj.streamlit.app
+## Live Demo
+
+Try the interactive Streamlit app here:  
+👉 [Streamlit App](https://amazon-fine-food-analytics-jxb5pkgnmmkkrjuwtu5upj.streamlit.app)
+
 > End-to-end natural language processing pipeline built around the **Amazon Fine Food Reviews** dataset. This project covers data ingestion preprocessing, modeling, evaluation, topic analysis, dashboard extracts, and a Streamlit interface for real-time sentiment predictions.
 
 ## Highlights
@@ -22,7 +24,7 @@ Try the interactive Streamlit app here:
 7. [Data Sources](#data-sources)
 8. [Modeling Pipeline](#modeling-pipeline)
 9. [Streamlit App](#streamlit-app)
-10. [Power BI Dashboard](#Power-BI-Dashboard)
+10. [Power BI Dashboard](#power-bi-dashboard)
 11. [Notebooks & Dashboards](#notebooks--dashboards)
 12. [Results Snapshot](#results-snapshot)
 13. [Reproducibility Notes](#reproducibility-notes)
@@ -133,54 +135,66 @@ The Streamlit app loads exactly these artifacts, so any retraining workflow shou
 If model artifacts are missing, the app displays a friendly error with traceback so deployment troubleshooting is easy.
 
 ## Power BI Dashboard
-Power BI Dashboard — Amazon Fine Food Analytics:
-An interactive three-page Power BI report built using the cleaned dataset (Cleaned Reviews.csv).
-The dashboard provides a visual storytelling layer on top of the NLP and modeling pipeline, allowing non-technical users to explore sentiment patterns, rating behaviors, and customer pain points.
-- Live Dashboard: https://app.powerbi.com/view?r=eyJrIjoiMWRiODQ4N2UtMzBiYS00ZmE4LTgyMmUtMTllOWVhMDRmYzA4IiwidCI6IjBkNGRhMGY4LTRhMzEtNGQ3Ni1hY2U2LTBhNjIzMzFlMWI4NCIsImMiOjF9&pageName=e8420c30b137a60b4595
+
+An interactive three-page **Power BI report** built using the cleaned dataset (`Data Processed/Cleaned Reviews.csv`).  
+The dashboard adds a visual storytelling layer on top of the NLP and modeling pipeline, allowing non-technical users to explore sentiment patterns, rating behaviors, and customer pain points.
+
+**🔗 Live Dashboard:**  
+[Amazon Fine Food Analytics — Power BI](https://app.powerbi.com/view?r=eyJrIjoiMWRiODQ4N2UtMzBiYS00ZmE4LTgyMmUtMTllOWVhMDRmYzA4IiwidCI6IjBkNGRhMGY4LTRhMzEtNGQ3Ni1hY2U2LTBhNjIzMzFlMWI4NCIsImMiOjF9&pageName=e8420c30b137a60b4595)
 
 ### Dashboard Pages
 
-1. Overview — Summary of Insights
-A high-level snapshot of customer satisfaction across 568k Amazon Fine Food reviews.
-Includes:
-- Total number of reviews
-- Average rating
-- Rating distribution
-- Sentiment distribution
-- Global slicers (Rating, Date)
-Purpose: Quickly assess overall customer experience before diving deeper.
+1. **Overview — Summary of Insights**  
+   High-level snapshot of customer satisfaction across 568k reviews.
 
-2. Trends Over Time — Customer Behavior Insights
-Time-series visuals reveal how customer engagement and sentiment have changed across 1999–2012.
-Includes:
-- Average rating over time
-- Review volume over time
-- Sentiment trend (Positive / Neutral / Negative)
-Purpose: Identify long-term shifts in customer behavior and feedback patterns.
+   **Includes:**
+   - Total number of reviews  
+   - Average rating  
+   - Rating distribution  
+   - Sentiment distribution  
+   - Global slicers (Rating, Date)
 
-3. Negative Review Drilldown — Understanding Customer Pain Points
-A focused diagnostic page that highlights where and why negative sentiment occurs.
-Includes:
-- Products with the most negative reviews
-- Examples of customer complaints
-- Length of negative reviews (indicator of strong emotion)
-- Helpfulness of negative reviews
-Purpose: Surface actionable insights to improve product quality and customer satisfaction.
+   **Purpose:** Quickly assess overall customer experience before diving deeper.
+
+2. **Trends Over Time — Customer Behavior Insights**  
+   Time-series visuals showing how customer engagement and sentiment changed across 1999–2012.
+
+   **Includes:**
+   - Average rating over time  
+   - Review volume over time  
+   - Sentiment trend (Positive / Neutral / Negative)
+
+   **Purpose:** Identify long-term shifts in customer behavior and feedback patterns.
+
+3. **Negative Review Drilldown — Understanding Customer Pain Points**  
+   Focused diagnostic page that highlights where and why negative sentiment occurs.
+
+   **Includes:**
+   - Products with the most negative reviews  
+   - Examples of customer complaints  
+   - Length of negative reviews (indicator of strong emotion)  
+   - Helpfulness of negative reviews  
+
+   **Purpose:** Surface actionable insights to improve product quality and customer satisfaction.
 
 ### Key Skills Demonstrated (Power BI)
-Data modeling and transformation through Power Query
-DAX measures for date conversion and sentiment grouping
-Report layout, page theming, and cohesive color design
-KPI cards, slicers, drilldown exploration, and storytelling UI
-Integration of NLP outputs into BI dashboards
+
+- Data modeling and transformation through Power Query  
+- DAX measures for date conversion and sentiment grouping  
+- Report layout, page theming, and cohesive color design  
+- KPI cards, slicers, drilldown exploration, and storytelling UI  
+- Integration of NLP outputs into BI dashboards  
 
 ### How the Dashboard Connects to the NLP Pipeline
-This dashboard was built using the same cleaned dataset and engineered features used for:
-- Sentiment classification
-- Trend analysis
-- Review length patterns
-- Helpfulness ratios
-It complements the Streamlit model by giving analysts and business stakeholders a visual, self-serve way to explore the dataset without writing code.
+
+The dashboard is built using the same cleaned dataset and engineered features used for:
+
+- Sentiment classification  
+- Trend analysis  
+- Review length patterns  
+- Helpfulness ratios  
+
+It complements the Streamlit model by giving analysts and business stakeholders a **visual, self-serve way** to explore the dataset without writing code.
 
 ## Notebooks & Dashboards
 | Notebook | Purpose |
